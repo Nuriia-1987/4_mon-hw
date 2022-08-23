@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for name in names_list%}
-        <div>{{name.name}}</div>
+{% extends 'base.html' %}
+{% block page %}
+    {% for name in names1_list%}
+        <div>
+            {{name.name}}
+            {% if name.photo %}
+                <img height="100px" src="{{ name.photo.url }}">
+            {% endif %}
+        </div>
+    <hr>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
