@@ -1,7 +1,14 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
-from .models import Client
+from .models import Client, Bottle
+
+
+def makers_list(reguest):
+    context = {}
+    bottles_list = Bottle.objects.all()
+    context['bottles_list'] = bottles_list
+    return render(reguest, 'makers.html', context)
 
 
 def name_list(request):
@@ -21,5 +28,5 @@ def contacts(request):
 
 def clients_list(request):
     context = {}
-    context["clients"] = Client.objects.all()
-    return render(request, 'clients.html', context)
+    context["core"] = Client.objects.all()
+    return render(request, 'core.html', context)

@@ -1,9 +1,9 @@
 from django.contrib import admin
-# clients/admin.py
+# core/admin.py
 
-from .models import Client, Order
+from .models import Bottle, Client, Order
 
-
+admin.site.register(Bottle)
 admin.site.register(Client)
 
 

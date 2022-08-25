@@ -1,6 +1,14 @@
 from django.db import models
 
+
 # Create your models here.
+
+class Bottle(models.Model):
+    volume = models.ImageField(default=10)
+    address = models.CharField(max_length=255)
+    maker = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+    expired = models.BooleanField(default=True)
 
 
 class Client(models.Model):
@@ -15,7 +23,13 @@ class Client(models.Model):
         blank=True
     )
 
+
 class Order(models.Model):
+    client = models.ForeignKey(
+        to=Client, null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name="orders"
+    )
     created_at = models.DateTimeField(
         verbose_name="Дата и время создания заказа",
         auto_now_add=True

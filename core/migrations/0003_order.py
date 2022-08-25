@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('clients', '0002_client_photo_alter_client_active'),
+        ('core', '0002_client_photo_alter_client_active'),
     ]
 
     operations = [
