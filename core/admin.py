@@ -1,20 +1,8 @@
 from django.contrib import admin
 # core/admin.py
 
-from .models import Bottle, Client, Order
+from .models import Bottle
 
 admin.site.register(Bottle)
-admin.site.register(Client)
 
 
-class OrderAdmin(admin.ModelAdmin):
-    model = Order
-    list_display = ["name", "contacts", "created_at", "finished"]
-    list_editable = ["contacts", "finished"]
-    fields = ["name", "contacts", "created_at", "updated_at", "description", "finished"]
-    readonly_fields = ["created_at", "updated_at"]
-
-
-admin.site.register(Order, OrderAdmin)
-
-# Register your models here.

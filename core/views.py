@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
-from .models import Client, Bottle
+from client.models import Client
+from .models import Bottle
 
 
 def makers_list(reguest):
@@ -23,7 +24,7 @@ def about(request):
 
 
 def contacts(request):
-    return render(request, 'clients/contacts.html')
+    return render(request, 'core/contacts.html')
 
 
 def clients_list(request):
