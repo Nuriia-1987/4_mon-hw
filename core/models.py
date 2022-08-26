@@ -9,24 +9,27 @@ class Bottle(models.Model):
     expired = models.BooleanField(default=True)
 
     orders = models.ManyToManyField(
-        to=Order, null=True, blank=True,
+        to=Order, blank=True,
         verbose_name='Orders',
         related_name='bottles'
     )
+
+    def __str__(self):
+        return f'{self.maker} - {self.volume}'
 
 
 class BottleCount(models.Model):
     bottle = models.ForeignKey(
         to=Bottle, null=True, blank=True,
         on_delete=models.SET_NULL,
-        related_name="count",
+        related_name="bottle_count",
     )
     count = models.IntegerField(default=1)
 
-    order1 = models.ForeignKey(
+    order = models.ForeignKey(
         to=Order, null=True, blank=True,
         on_delete=models.SET_NULL,
-        related_name="order"
+        related_name="bottle_count"
     )
     finished = models.BooleanField(default=False)
 

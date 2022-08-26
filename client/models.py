@@ -17,7 +17,6 @@ class Client(models.Model):
         upload_to='photos',
         null=True,
         blank=True
-
     )
 
 
@@ -25,7 +24,7 @@ class Order(models.Model):
     client = models.ForeignKey(
         to=Client, null=True, blank=True,
         on_delete=models.SET_NULL,
-        related_name="orders"
+        related_name="order"
     )
     created_at = models.DateTimeField(
         verbose_name="Дата и время создания заказа",

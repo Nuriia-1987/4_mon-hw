@@ -5,29 +5,16 @@ from client.models import Client
 from .models import Bottle
 
 
-def makers_list(reguest):
-    context = {}
-    bottles_list = Bottle.objects.all()
-    context['bottles_list'] = bottles_list
-    return render(reguest, 'makers.html', context)
-
-
-def name_list(request):
-    context = {}
-    names1_list = Client.objects.all()
-    context["names1_list"] = names1_list
-    return render(request, 'name.html', context)
+def contacts(request):
+    return render(request, 'core/contacts.html')
 
 
 def about(request):
     return render(request, 'about.html')
 
 
-def contacts(request):
-    return render(request, 'core/contacts.html')
-
-
-def clients_list(request):
+def makers_list(reguest):
     context = {}
-    context["core"] = Client.objects.all()
-    return render(request, 'core.html', context)
+    bottles_list = Bottle.objects.all()
+    context['bottles_list'] = bottles_list
+    return render(reguest, 'makers.html', context)

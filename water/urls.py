@@ -16,7 +16,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from core.views import name_list, about, makers_list
+
+from client.views import name_list
+from core.views import about, makers_list
 from django.conf import settings
 from django.conf.urls.static import static
 

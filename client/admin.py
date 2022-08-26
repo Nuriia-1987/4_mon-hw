@@ -1,7 +1,7 @@
 
 from django.contrib import admin
-from .models import Client, Order
-
+from .models import Client
+from client.models import Order
 # Register your models here.
 admin.site.register(Client)
 
