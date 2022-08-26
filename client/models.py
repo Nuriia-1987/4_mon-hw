@@ -1,10 +1,13 @@
 from django.db import models
-
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
 class Client(models.Model):
+    user = models.OneToOneField(
+        to=User, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name="Client"
+    )
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     active = models.BooleanField(default=True, verbose_name="Является активным покупателем")
@@ -14,6 +17,7 @@ class Client(models.Model):
         upload_to='photos',
         null=True,
         blank=True
+
     )
 
 
