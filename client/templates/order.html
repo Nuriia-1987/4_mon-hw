@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block page %}
+    {% for order in orders_list %}
+        <div>
+            <a href="/order/{{ order.id }}">{{ order.name }}</a>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
