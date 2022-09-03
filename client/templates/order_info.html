@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block page %}
-    <h3>Информация о заказе</h3>
-    <div>Имя: {{ order.name }}</div>
-    <div>Контакт: {{ order.contacts }}</div>
-    <div>Описания: {{ order.description }}</div>
+    <h1>Информация о заказе</h1>
+    <div>Имя: {{ order_object.name }}</div>
+    <div>Контакт: {{ order_object.contacts }}</div>
+    <div>Клиент: {{ order_object.client.name }}</div>
     <br>
     <br>
-    <div>Дата заказа: {{ order.created_at }}</div>
-    <div>Финиш: {{ order.finished }}</div>
+    <div>Дата заказа: {{ order_object.created_at }}</div>
+    <div>Финиш: {{ order_object.finished }}</div>
 {% endblock %}
+

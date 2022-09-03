@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block page %}
-    {% for client in clients %}
+    {% for client in object_list %}
         <div>
-            <a href="/client/{{ client.id }}">{{client.name}}</a>
+            <a href="/client/{{ client.id }}">{{ client.name }}</a>
             {% if client.photo %}
                 <br/>
                 <img height="100px" src="{{ client.photo.url }}">
