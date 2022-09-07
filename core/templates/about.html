@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% block page %}
+    <h2>Привет, {{ request.user.username }}</h2>
+    <hr>
     <div>
-     Hello word!!!
+     loren ipsum dolor sit anet, consectetur adipisicing elit.
     </div>
-    <button type="button" class="btn btn-success">Success</button>
+    <hr>
+    <h2>Оставить отзыв</h2>
+    <from>
+        <input type="text">
+        <button type="button" class="btn btn-warning">Send</button>
+    </from>
+
 {% endblock %}

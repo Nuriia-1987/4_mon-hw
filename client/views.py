@@ -71,3 +71,7 @@ class OrderDeleteView(DeleteView):
     fields = ['name', 'contacts', 'description']
     success_url = '/order/'
 
+
+class ClientOrderList(ListView):
+    model = Order
+    template_name = 'order_list.html'
