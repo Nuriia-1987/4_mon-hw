@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, HttpResponse, redirect
 
 # Create your views here.
@@ -29,7 +29,7 @@ class MyView(View):
 
 class LoginView(View):
     def get(self, request):
-        context = {'form': LoginForm}
+        context = {'form': LoginForm()}
         return render(request, 'auth/sign_in.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -38,8 +38,14 @@ class LoginView(View):
         possword = data['password']
         user = authenticate(request, username=user_login, password=possword)
         if user is not None:
-            user_login(request, user)
+            login(request, user)
             return redirect(about)
         else:
             return HttpResponse('Неверный логин или пароль')
+
+
+class LoginOutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect(about)
 

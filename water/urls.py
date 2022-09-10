@@ -30,7 +30,7 @@ urlpatterns = [
     path('', MakerListView.as_view(), name='makers-list'),
     path('clients/', ClientListView.as_view(), name='client-list'),
     path('client/<int:pk>/', ClientDetailView.as_view(), name='client-detail'),
-    path('client/<int:id>/order_list/', ClientOrderList.as_view(), name="client-order-list"),
+    path('client/<int:pk>/order-list/', ClientOrderList.as_view(), name="client-order-list"),
     path('client/update/<int:id>/', ClientUpdateView.as_view(), name="client-update"),
     path('order/', OrderListView.as_view(), name='order-list'),
     path('order/<int:pk>/', OrderDetailView.as_view(), name='order-details'),
@@ -39,7 +39,8 @@ urlpatterns = [
     path('order/djangoform/', CreateOrderDjangoView.as_view(), name='order-djangoform'),
     path('order/create/', CreateOrderView.as_view(), name='create-order'),
     path('test/', MyView.as_view()),
-    path('signin/', LoginView.as_view(), name="sign-in")
+    path('signin/', LoginView.as_view(), name="sign-in"),
+    path('signout/', LoginOutView.as_view(), name="sign-out")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

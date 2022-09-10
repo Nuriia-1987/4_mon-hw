@@ -12,13 +12,15 @@
 <body>
     <div class="container">
         <nav>
-            <a href="{% url 'makers-list' %}">Производители</a>
+            <a href="/">Производители</a>
             <a href="{% url 'client-list' %}">Клиенты</a>
             <a href="{% url 'order-list' %}">Заказы</a>
-            <a href="{% url 'client-order-list' %}">Мои заказы</a>
+{#            <a href="{% url 'client-order-list' %}">Мои заказы</a>#}
             <a href="{% url 'create-order' %}">Заказать</a>
             <a href="/about/">О нас</a>
             <a href="/contacts/">Контанты</a>
+            <a href="/signin/">Войти</a>
+            <a href="/signout/">Выйти</a>
         </nav>
         <div id="page">
             {% block page %}

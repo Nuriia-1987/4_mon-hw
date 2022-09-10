@@ -43,7 +43,7 @@ class OrderListView(ListView):
 
 class OrderDetailView(DetailView):
     model = Order
-    template_name = 'order_object.html'
+    template_name = 'order_info.html'
 
 
 class CreateOrderDjangoView(CreateView):
@@ -75,3 +75,10 @@ class OrderDeleteView(DeleteView):
 class ClientOrderList(ListView):
     model = Order
     template_name = 'order_list.html'
+
+    def get(self, request, *args, **kwargs):
+        context = {}
+        pk = kwargs.get("pk")
+        client = Client.objects.get(id=kwargs.get("pk"))
+        context["object_list"] = Order.objects.filter(client=client)
+        return render(request, self.template_name, context)
